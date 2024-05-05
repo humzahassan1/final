@@ -1,0 +1,317 @@
+/*
+Author: Rajin Islam
+File Name: styles.css
+Date: 04/02/2023
+*/
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    font-family: 'Lora', serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    min-height: 100vh;
+    background-color: #FFFFFF;
+    font-size: 1.2em;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Header, Navigation */
+header {
+    width: 100%; /* Ensure full page width */
+    display: block; /* Use block layout for straightforward full-width application */
+    text-align: center; /* Center align the text content for mobile */
+}
+
+.tab-desk {
+    display: flex; /* Enables flexible layouts */
+    justify-content: center; /* Center the image */
+    width: 100%; /* Full width */
+}
+
+.tab-desk img {
+    max-width: 100%; /* Allows the image to be responsive and fit the container width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+nav {
+    background-color: #830f10;
+    display: flex;
+    justify-content: center; /* Centers navigation items horizontally */
+    font-size: 1.5rem;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row; /* Adjusts nav items to be inline for desktop view */
+    justify-content: center; /* Centers the nav list items */
+    width: 100%;
+    list-style-type: none; /* Removes bullet points */
+    padding: 0;
+}
+
+nav li {
+    margin: 0 20px; /* Adds margin to each side of nav items for spacing */
+}
+
+nav li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 15px; /* Adds padding to increase clickable area */
+    display: block; /* Ensures links fill the space of the list item for better UX */
+    text-align: center;
+}
+
+/* Ensure nav items are centered properly */
+@media screen and (min-width: 750px) {
+    nav li {
+        display: inline-block; /* Ensure nav items are displayed inline */
+        margin: 0 10px; /* Adjust spacing */
+    }
+
+    nav li a:hover {
+        background-color: #00a2ff; /* Hover effect */
+        color: #2a1f14; /* Text color change on hover */
+    }
+}
+
+/* Main Content */
+main {
+    flex-grow: 1;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Explore Section Heading Style */
+#explore h2 {
+    background-color: #830f10;
+    color: white; 
+    width: 100%; 
+    text-align: center; 
+    padding: 1rem 0; 
+    margin: 0 0 20px 0; 
+    box-sizing: border-box; 
+}
+
+/* Bars */
+#latest {
+    display: flex;
+    flex-direction: column; /* stack elements in mobile */
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+#latest img {
+    border-radius: 20px; /* Make the image round */
+    max-width: 100%; /* Ensure image is responsive */
+    margin-bottom: 20px; /* Space between image and bars on mobile */
+}
+
+.info-bars {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* stack bars vertically for all screen sizes initially */
+}
+
+.bar {
+    background-color: #830f10;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-between; /* Aligns left and right parts on each side of the bar */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 15px; /* gives the bars rounded corners */
+}
+/* Footer */
+footer {
+    background-color: #2a1f14;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 0.85em;
+    padding: 1% 0;
+    display: flex;
+    justify-content: center; /* Center footer content */
+    align-items: center;
+}
+
+footer a {
+    color: #FFFFFF
+}
+
+/* Grid and Box styles for layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Ensures it's a square */
+    background-size: cover;
+    background-position: center;
+    overflow: hidden; /* Keeps pseudo elements contained */
+    font-size: 1.75rem
+}
+
+.box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/final/imgs/redpandanobackground.png') no-repeat center center; /* adjust path as necessary */
+    background-size: cover;
+    opacity: 0.3; /* Adjust for desired transparency of the image */
+    z-index: 1;
+}
+
+.box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 0, 0, 0.479); /* Initially transparent */
+    transition: background-color 0.5s ease; /* Smooth transition for the background color change */
+    z-index: 1;
+}
+
+.box:hover::after {
+    background: rgba(150, 0, 0, 0.5); /* Fades in to this color on hover */
+}
+
+.box-link {
+    position: relative;
+    z-index: 2;
+    color: #FFFFFF;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.box a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.box a:hover {
+    color: #00a2ff
+}
+
+.box:hover {
+    background-color: #3a2f24;
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 750px) {
+    #latest {
+        display: flex;
+        flex-direction: column; /* Keeps the "Our Latest Rescue" title on top */
+        align-items: center; /* Centers the content */
+        width: 100%;
+    }
+
+    #latest img, .info-bars {
+        width: calc(50% - 40px); /* Sets each to take half the width of their parent, accounting for some margin */
+        margin: 20px; /* Provides spacing around the elements */
+    }
+
+    #latest img {
+        order: 1; /* Ensures the image is on the left */
+        border-radius: 20px; /* Rounded corners for the image */
+        margin-bottom: 0; /* Removes the bottom margin specifically for the image */
+    }
+    
+    .info-bars {
+        order: 2; /* Ensures the info-bars are on the right */
+        display: flex;
+        flex-direction: column; /* Keeps the info bars stacked vertically */
+        justify-content: flex-start; /* Aligns content to the start */
+    }
+
+    /* Creating a horizontal layout for the inside of #latest */
+    #latest {
+        flex-direction: row; /* Changes children layout to horizontal */
+        justify-content: center; /* Centers children horizontally */
+        align-items: flex-start; /* Aligns children to the top */
+    }
+
+    .bar {
+        /* Maintaining styling for each information bar */
+        background-color: #830f10;
+        color: #FFFFFF;
+        display: flex;
+        justify-content: space-between; /* Ensures content is spaced out between left and right sides */
+        padding: 10px;
+        margin-bottom: 10px; /* Gives space between each bar */
+        border-radius: 15px; /* Rounded corners for the bars */
+    }
+
+    /* Adjustment for the grid within the explore section to ensure proper layout on desktop */
+    .grid {
+        grid-template-columns: repeat(3, 1fr); /* Aligns grid items into 3 columns */
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row; /* Adjusts the nav items to be horizontally aligned */
+        justify-content: center; 
+        width: 100%;
+    }
+
+    nav li {
+        display: inline-block;
+        margin-right: 20px; 
+        margin: 0 10px;
+        padding: 0;
+    }
+
+    nav li a {
+        color: #ffffff; 
+        text-decoration: none;
+        padding: 10px 15px;
+        display: block; 
+        text-align: center; 
+        width: 100%; 
+        box-sizing: border-box; 
+    }
+
+    nav li a:hover {
+        background-color: #830f10; /* Example hover background color, adjust as needed */
+        color: #00a2ff; /* Example hover text color, adjust as needed */
+    }
+
+    nav li:last-child {
+        margin-right: 0;
+    }
+
+    header {
+        flex-direction: row; /* Ensures header content is laid out horizontally */
+        justify-content: space-between; /* Spaces out the header elements */
+    }
+
+}
